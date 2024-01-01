@@ -5,8 +5,7 @@
 
 #include <arch/cpu.h>
 #include <requests.h>
-#include <log.h>
-#include <vendor/kprint.h>
+#include <kprint.h>
 
 LIMINE_BASE_REVISION(1)
 
