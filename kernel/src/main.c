@@ -1,8 +1,10 @@
-#include <def.h>
 #include <limine.h>
+#include <utils/def.h>
+
 #include <arch/cpu.h>
-#include <requests.h>
-#include <kprint.h>
+
+#include <utils/def.h>
+#include <utils/kprint.h>
 
 LIMINE_BASE_REVISION(1)
 

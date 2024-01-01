@@ -1,6 +1,8 @@
-#include <kprint.h>
+#include "kprint.h"
+
 #include <arch/cpu.h>
-#include <def.h>
+
+#include <utils/def.h>
 
 #define FLAG_LEFT (1 << 0)
 #define FLAG_SIGN (1 << 1)
@@ -373,7 +375,8 @@ static void serial_log_out_num(uint64_t value, uint64_t radix) {
     }
 }
 
-void serial_log_init(void) {
+void serial_log_init()
+{
 	/* Enable DLAB (Divisor Latch Access Bit) */
 	outportb(COM1 + 3, 0x80);
 
