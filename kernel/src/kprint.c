@@ -1,8 +1,6 @@
 #include <kprint.h>
 #include <arch/cpu.h>
-#include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
+#include <def.h>
 
 #define FLAG_LEFT (1 << 0)
 #define FLAG_SIGN (1 << 1)
