@@ -1,7 +1,9 @@
 # Nuke built-in rules and variables.
 override MAKEFLAGS += -rR
-
 override IMAGE_NAME := omen
+
+# Architecture to build
+ARCH := x86_64
 
 # Convenience macro to reliably declare user overridable variables.
 define DEFAULT_VAR =
@@ -63,7 +65,7 @@ limine:
 .PHONY: kernel
 kernel:
 	rm -rf kernel/src/vendor/printf/test
-	$(MAKE) -C kernel
+	$(MAKE) -C kernel ARCH=$(ARCH)
 
 $(IMAGE_NAME).iso: limine kernel
 	rm -rf iso_root

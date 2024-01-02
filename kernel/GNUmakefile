@@ -37,7 +37,9 @@ NASMFLAGS = \
     -Wall \
     -f elf64
 
-LINK_FILE = linker.ld
+ARCH ?= x86_64
+
+LINK_FILE = src/arch/$(ARCH)/linker.ld
 
 LDFLAGS =    				\
 	-nostdlib				\
@@ -61,6 +63,7 @@ $(SRC_DIR)/limine.h:
 
 $(KERNEL): $(ASM_OBJ_FILES) $(C_OBJ_FILES)
 	mkdir -p $(BIN_DIR)
+	@echo "$(shell pwd)"
 	$(LD) $(LDFLAGS) -o $@ $^
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.asm $(SRC_DIR)/limine.h
