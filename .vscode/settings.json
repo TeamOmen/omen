@@ -1,0 +1,14 @@
+{
+	"files.associations": {
+		"stdbool.h": "c",
+		"requests.h": "c",
+		"arch.h": "c",
+		"stddef.h": "c",
+		"log.h": "c",
+		"limits": "c",
+		"printf.h": "c",
+		"cpu.h": "c",
+		"stdarg.h": "c",
+		"stdint.h": "c"
+	}
+}
