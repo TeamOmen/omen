@@ -1,3 +1,4 @@
+#include "cpu.h"
 #include <arch/cpu.h>
 
 void arch_cpu_halt()
@@ -10,14 +11,14 @@ void arch_cpu_halt_cli()
 	asm ("cli\n 1: hlt\n jmp 1");
 }
 
-uint8_t arch_inportb(uint16_t port)
+uint8_t x86_64_inportb(uint16_t port)
 {
 	unsigned char rv;
 	asm volatile ("inb %1, %0" : "=a" (rv) : "dN" (port));
 	return rv;
 }
 
-void arch_outportb(uint16_t port, uint8_t data)
+void x86_64_outportb(uint16_t port, uint8_t data)
 {
 	asm volatile ("outb %1, %0" : : "dN" (port), "a" (data));
 }

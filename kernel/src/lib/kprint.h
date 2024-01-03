@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include <stdarg.h>
 
-void putchar(char character);
+void kprint_sink(char ch);
 
 /**
  * @brief Prints a formatted string. Takes varargs as values
@@ -21,8 +21,3 @@ int kprintf(const char *fmt, ...);
  * @return Count of characters written
  */
 int kprintv(const char *format, va_list list);
-
-/**
- * Initializes serial log
-*/
-void serial_log_init(void);
