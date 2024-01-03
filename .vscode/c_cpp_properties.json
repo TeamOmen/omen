@@ -1,0 +1,42 @@
+{
+    "configurations": [
+        {
+            "name": "ElysiumOS",
+            "includePath": [
+                "${workspaceFolder}/kernel/src"
+            ],
+            "defines": [
+                /* Unsupported C23 features work-around */
+                /* https://github.com/microsoft/vscode-cpptools/issues/10696 */
+                "true=1",
+                "false=0",
+                "bool=_Bool",
+                "static_assert=_Static_assert"
+            ],
+            "cStandard": "gnu23",
+            "intelliSenseMode": "gcc-x64",
+            "compilerArgs": [
+                "-std=gnu2x",
+                "-Wall",
+                "-Wextra",
+                "-ffreestanding",
+                "-fno-stack-protector",
+                "-fno-stack-check",
+                "-fno-lto",
+                "-fno-PIE",
+                "-fno-PIC",
+                "-m64",
+                "-march=x86-64",
+                "-mabi=sysv",
+                "-mno-80387",
+                "-mno-mmx",
+                "-mno-sse",
+                "-mno-sse2",
+                "-mno-red-zone",
+                "-mcmodel=kernel",
+                "-g"
+            ]
+        }
+    ],
+    "version": 4
+}
