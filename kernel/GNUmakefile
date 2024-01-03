@@ -14,6 +14,7 @@ LD = ld
 # Compiler flags
 CFLAGS = \
 	-I./src \
+    -std=gnu2x \
     -Wall \
     -Wextra \
     -ffreestanding \

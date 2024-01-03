@@ -1,8 +1,6 @@
 #include "kprint.h"
-
+#include <stddef.h>
 #include <arch/cpu.h>
-
-#include <utils/def.h>
 
 #define FLAG_LEFT (1 << 0)
 #define FLAG_SIGN (1 << 1)
@@ -360,7 +358,7 @@ int kprintv(const char *format, va_list list) {
 static const char *g_num_chars = "0123456789ABCDEF";
 
 void putchar(char ch) {
-    outportb(COM1, ch);
+    arch_outportb(COM1, ch);
 }
 
 static void serial_log_out_num(uint64_t value, uint64_t radix) {
@@ -378,23 +376,23 @@ static void serial_log_out_num(uint64_t value, uint64_t radix) {
 void serial_log_init()
 {
 	/* Enable DLAB (Divisor Latch Access Bit) */
-	outportb(COM1 + 3, 0x80);
+	arch_outportb(COM1 + 3, 0x80);
 
 	/* Set divisor low byte (115200 baud) */
-	outportb(COM1 + 0, 0x03);
+	arch_outportb(COM1 + 0, 0x03);
 
 	/* Set divisor high byte */
-	outportb(COM1 + 1, 0x00);
+	arch_outportb(COM1 + 1, 0x00);
 
 	/* Set parity */
-	outportb(COM1 + 3, 0x03);
+	arch_outportb(COM1 + 3, 0x03);
 
 	/* Enable FIFO, clear transmit and receive FIFO queues */
-    outportb(COM1 + 2, 0xC7);
+    arch_outportb(COM1 + 2, 0xC7);
 
 	/* Clear them */
-    outportb(COM1 + 4, 0x0B);
+    arch_outportb(COM1 + 4, 0x0B);
 
 	/* Enable interrupts */
-	outportb(COM1 + 1, 0x01);
+	arch_outportb(COM1 + 1, 0x01);
 }

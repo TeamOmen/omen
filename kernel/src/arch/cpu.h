@@ -1,9 +1,8 @@
 #pragma once
-
-#include <utils/def.h>
+#include <stdint.h>
 
 void arch_cpu_halt();
 void arch_cpu_halt_cli();
 
-void outportb(uint16_t port, uint8_t data);
-uint8_t inportb(uint16_t port);
+void arch_outportb(uint16_t port, uint8_t data);
+uint8_t arch_inportb(uint16_t port);

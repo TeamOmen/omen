@@ -2,6 +2,5 @@
 /ovmf
 *.iso
 *.hdd
-.vscode
 omen.iso
 log.txt
