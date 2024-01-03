@@ -1,14 +1,11 @@
 #include "cpu.h"
 #include <arch/cpu.h>
 
-void arch_cpu_halt()
+[[noreturn]] void arch_cpu_hang()
 {
-	asm ("1: hlt\n jmp 1");
-}
-
-void arch_cpu_halt_cli()
-{
-	asm ("cli\n 1: hlt\n jmp 1");
+	asm volatile("cli");
+	for(;;) asm volatile("hlt");
+	__builtin_unreachable();
 }
 
 uint8_t x86_64_inportb(uint16_t port)

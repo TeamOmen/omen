@@ -29,7 +29,6 @@ void x86_64_serial_init()
 
 	/* Enable interrupts */
 	x86_64_outportb(COM1 + 1, 0x01);
-
 }
 
 void x86_64_serial_char(char ch)
